@@ -10,6 +10,7 @@ class ModalAddFood extends Component {
     super(props);
 
     this.formRef = createRef();
+    console.log(this.formRef)
   }
 
   handleSubmit = async data => {

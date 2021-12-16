@@ -23,6 +23,7 @@ class Modal extends Component {
   render() {
     const { children, setIsOpen } = this.props;
     const { modalStatus } = this.state;
+    console.log(modalStatus)
 
     return (
       <ReactModal
@@ -56,3 +57,4 @@ class Modal extends Component {
 };
 
 export default Modal;
+
