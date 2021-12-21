@@ -23,6 +23,7 @@ interface FoodType {
   available: boolean
 }
 
+//minha duvida ficou por aqui, a tipagem desse Dashboard
 export default function Dashboard<DashboardProps>(){
   const [foods, setFoods] = useState<FoodType[]>([]);
   const [modalOpen, setModalOpen] = useState(false);
@@ -32,16 +33,15 @@ export default function Dashboard<DashboardProps>(){
  
   useEffect(() =>{
     api.get('/foods').then(response => setFoods(response.data))
-    console.log(foods)
   },[])
 
   async function handleAddFood(food: FoodType){
     try {
       const response = await api.post('/foods', {
         ...food,
-        avaliable: true
+        available: true
       });
-
+      //console.log(response.data)
       setFoods([...foods, response.data])
     } catch (err) {
       console.log(err);
@@ -87,6 +87,7 @@ export default function Dashboard<DashboardProps>(){
     setEditModalOpen(true);
   }
 
+  console.log(modalOpen, editModalOpen)
 
   return(
     <>
